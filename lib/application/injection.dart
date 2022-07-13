@@ -4,6 +4,7 @@ import 'package:test_frezux/application/repository/currency_image/currency_image
 import 'package:test_frezux/application/repository/currency_image/implementation/local.dart';
 import 'package:test_frezux/application/repository/logo/implementations/local.dart';
 import 'package:test_frezux/application/repository/logo/logo.dart';
+import 'package:test_frezux/application/repository/transaction_details.dart';
 import 'package:test_frezux/application/repository/user/implementations/mock.dart';
 import 'package:test_frezux/application/repository/user/user.dart';
 import 'package:test_frezux/data/repository/account/mock.dart';
@@ -49,5 +50,8 @@ Future<void> inject() async {
   );
   getIt.registerSingleton<CurrencyImageRepository>(
     LocalCurrencyImageRepository(),
+  );
+  getIt.registerSingleton<UserTransactionRepository>(
+    UserTransactionRepository(),
   );
 }

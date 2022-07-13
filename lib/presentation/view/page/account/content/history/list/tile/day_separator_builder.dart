@@ -23,7 +23,7 @@ class DaySeparatorBuilder {
 
   Widget _buildDaySeparator(DateTime dateTime) {
     return Container(
-      height: 20,
+      height: 20, //TODO Fix. Add correct height computation
       color: Colors.grey,
       child: Text(_formatter.format(dateTime)),
     );

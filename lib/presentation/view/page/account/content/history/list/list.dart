@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_frezux/presentation/view/page/account/content/history/list/tile/day_separator_builder.dart';
 import 'package:test_frezux/presentation/view/page/account/content/history/list/tile/tile.dart';
+import 'package:test_frezux/presentation/view/template/separated_column.dart';
 import 'package:test_frezux/presentation/view_model/history.dart';
 
 class HistoryList extends StatelessWidget {
@@ -13,10 +14,13 @@ class HistoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     final transactions = context.watch<HistoryViewModel>().transactions;
 
-    return ListView.separated(
-      itemBuilder: (_, i) => HistoryTile(transactions[i]),
-      separatorBuilder: (_, i) => _separator.build(context, transactions[i].dateTime),
+    final child = SeparatedColumn(
       itemCount: transactions.length,
+      itemBuilder: (i) => HistoryTile(transactions[i]),
+      separatorBuilder: (i) =>
+          _separator.build(context, transactions[i].dateTime),
     );
+
+    return child;
   }
 }

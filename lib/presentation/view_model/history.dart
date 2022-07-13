@@ -11,17 +11,17 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
   late List<UserTransaction> _transactions;
   List<UserTransaction> get transactions => _transactions;
 
-  late Currency _currency;
+  late var _currency = Currencies().find("USD")!;
   Currency get currency => _currency;
   set currency(Currency currency) {
     _currency = currency;
     notifyListeners();
   }
 
-  late DateRangeShortcut? _shortcut;
+  late DateRangeShortcut? _shortcut = DateRangeShortcut.day;
   DateRangeShortcut? get shortcut => _shortcut;
 
-  late DateTimeRange _range;
+  late var _range = LastDateRange.getRange(_shortcut!);
   DateTimeRange get range => _range;
   set range(DateTimeRange newRange) {
     _shortcut = null;
