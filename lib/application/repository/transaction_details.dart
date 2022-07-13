@@ -3,9 +3,7 @@ import 'package:test_frezux/application/dto/user_transaction.dart';
 import 'package:test_frezux/application/mapper/transaction.dart';
 import 'package:test_frezux/domain/repository/transaction.dart';
 
-import '../transaction_details.dart';
-
-class LocalUserTransactionRepository extends UserTransactionRepository {
+class UserTransactionRepository {
   final _repository = GetIt.I.get<TransactionRepository>();
   final _mapper = GetIt.I.get<TransactionMapper>();
 

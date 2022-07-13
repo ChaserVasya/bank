@@ -2,7 +2,7 @@ import 'package:money2/money2.dart';
 
 import '../currency_image.dart';
 
-class MoskCurrencyImageRepository extends CurrencyImageRepository {
+class LocalCurrencyImageRepository extends CurrencyImageRepository {
   static const _currencyImageFolder = "assets/images/currency";
   static const _extension = "jpg";
 

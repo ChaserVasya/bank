@@ -1,25 +1,17 @@
-import 'package:money2/money2.dart';
 import 'package:test_frezux/data/repository/account/mock.dart';
-import 'package:test_frezux/domain/entity/account.dart';
 import 'package:test_frezux/domain/entity/person/persons/legal.dart';
 import 'package:test_frezux/domain/repository/person/legal.dart';
-import 'package:decimal/decimal.dart';
 
-class MoskLegalPersonRepository extends LegalPersonRepository {
+class MockLegalPersonRepository extends LegalPersonRepository {
   @override
-  Future<Map<int, LegalPerson>> getAll() {
-    // TODO: implement getAll
-    throw UnimplementedError();
-  }
+  Future<Map<int, LegalPerson>> getAll() =>
+      Future.value(Map.from(mockLegalPersons));
 
   @override
-  Future<LegalPerson> getByID(int id) {
-    // TODO: implement getByID
-    throw UnimplementedError();
-  }
+  Future<LegalPerson> getByID(int id) => Future.value(mockLegalPersons[id]!);
 }
 
-final Map<int, LegalPerson> mockNaturalPersons = {
+final Map<int, LegalPerson> mockLegalPersons = {
   mockAccounts[4]!.id: LegalPerson(
     name: "Pret A Manger",
     account: mockAccounts[4]!,

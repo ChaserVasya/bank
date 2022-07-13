@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
 import 'package:test_frezux/application/dto/user_transaction.dart';
-import 'package:test_frezux/application/repository/transaction_details/transaction_details.dart';
+import 'package:test_frezux/application/repository/transaction_details.dart';
 import 'package:test_frezux/presentation/view_model/fetch_notifier.dart';
 
 class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
@@ -43,7 +43,14 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
     _transactions = _transactions
         .where((e) => e.amount.currency == currency)
         .where((e) => range.includes(e.dateTime))
-        .toList();
+        .toList()
+      ..sort(
+        (one, another) => one.dateTime.isBefore(another.dateTime)
+            ? 1
+            : one.dateTime.isAtSameMomentAs(another.dateTime)
+                ? 0
+                : -1,
+      );
   }
 }
 
