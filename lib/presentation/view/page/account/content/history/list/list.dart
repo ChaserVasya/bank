@@ -14,13 +14,11 @@ class HistoryList extends StatelessWidget {
   Widget build(BuildContext context) {
     final transactions = context.watch<HistoryViewModel>().transactions;
 
-    final child = SeparatedColumn(
+    return SeparatedColumn(
       itemCount: transactions.length,
       itemBuilder: (i) => HistoryTile(transactions[i]),
       separatorBuilder: (i) =>
           _separator.build(context, transactions[i].dateTime),
     );
-
-    return child;
   }
 }
