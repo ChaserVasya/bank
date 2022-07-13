@@ -23,7 +23,7 @@ class _InitPageState extends State<InitPage> {
   }
 
   Future<void> _pushHome() async {
-    await Future(() => Navigator.pushReplacementNamed(context, "/tasks"));
+    await Future(() => Navigator.pushReplacementNamed(context, "/account"));
     FlutterNativeSplash.remove();
   }
 

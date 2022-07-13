@@ -1,4 +1,4 @@
 flutter_icons:
-  image_path: "assets/images/logo.png"
+  image_path: "assets/images/logos/app.png" 
   android: true 
-  adaptive_icon_foreground: "assets/images/logo.png" # only available for Android 8.0 devices and above
+  adaptive_icon_foreground: "assets/images/logos/app.png" 

@@ -11,8 +11,8 @@ class TransactionMapper {
   final _legalPersonLogoRepository = GetIt.I.get<LegalPersonLogoRepository>();
   final _userRepository = GetIt.I.get<UserRepository>();
 
-  static const String _incomingLogoPath = "assets/images/logos/incoming.jpg";
-  static const String _outgoingLogoPath = "assets/images/logos/outgoing.jpg";
+  static const String _incomingLogoPath = "assets/images/logos/incoming.png";
+  static const String _outgoingLogoPath = "assets/images/logos/outgoing.png";
 
   Future<UserTransaction> toUserTransaction(Transaction transaction) async {
     final user = await _userRepository.getUser();
