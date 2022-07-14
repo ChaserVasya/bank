@@ -19,11 +19,11 @@ class _InitPageState extends State<InitPage> {
 
   Future<void> _initApp() async {
     await inject();
-    await _pushHome();
+    _pushHome();
   }
 
-  Future<void> _pushHome() async {
-    await Future(() => Navigator.pushReplacementNamed(context, "/account"));
+  void _pushHome() {
+    Navigator.pushReplacementNamed(context, "/account");
     FlutterNativeSplash.remove();
   }
 
