@@ -1,4 +1,4 @@
-# test_frezux
+# Bank
 
 Test task.
 
