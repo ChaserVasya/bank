@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_frezux/presentation/view_model/history.dart';
+import 'package:bank/presentation/view_model/history.dart';
 
 class CustomRangeButton extends StatelessWidget {
   const CustomRangeButton({Key? key}) : super(key: key);

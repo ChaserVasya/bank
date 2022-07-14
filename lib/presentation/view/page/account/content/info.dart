@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_frezux/presentation/view/animation/expansion.dart';
-import 'package:test_frezux/presentation/view/template/content_fetcher.dart';
-import 'package:test_frezux/presentation/view_model/user.dart';
+import 'package:bank/presentation/view/animation/expansion.dart';
+import 'package:bank/presentation/view/template/content_fetcher.dart';
+import 'package:bank/presentation/view_model/user.dart';
 
 class AccountInfo extends StatelessWidget {
   const AccountInfo({Key? key}) : super(key: key);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
-import 'package:test_frezux/application/dto/user_transaction.dart';
-import 'package:test_frezux/application/repository/transaction_details.dart';
-import 'package:test_frezux/presentation/view_model/fetch_notifier.dart';
+import 'package:bank/application/dto/user_transaction.dart';
+import 'package:bank/application/repository/transaction_details.dart';
+import 'package:bank/presentation/view_model/fetch_notifier.dart';
 
 class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
   final _repository = GetIt.I.get<UserTransactionRepository>();

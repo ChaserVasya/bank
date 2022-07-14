@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_frezux/application/dto/user_transaction.dart';
+import 'package:bank/application/dto/user_transaction.dart';
 
 import 'parts/amount.dart';
 import 'parts/logo.dart';

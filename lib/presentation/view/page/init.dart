@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:test_frezux/application/injection.dart';
-import 'package:test_frezux/presentation/view/plug/page.dart';
+import 'package:bank/application/injection.dart';
+import 'package:bank/presentation/view/plug/page.dart';
 
 class InitPage extends StatefulWidget {
   const InitPage({Key? key}) : super(key: key);

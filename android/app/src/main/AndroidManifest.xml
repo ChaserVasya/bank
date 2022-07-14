@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.test_frezux">
    <application
-        android:label="test_frezux"
+        android:label="Bank"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

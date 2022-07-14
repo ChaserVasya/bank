@@ -1,4 +1,4 @@
-import 'package:test_frezux/domain/entity/transaction.dart';
+import 'package:bank/domain/entity/transaction.dart';
 
 import 'base.dart';
 

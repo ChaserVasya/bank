@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_frezux/application/dto/user_transaction.dart';
-import 'package:test_frezux/application/helper/text/transaction_direction.dart';
+import 'package:bank/application/dto/user_transaction.dart';
+import 'package:bank/application/helper/text/transaction_direction.dart';
 
 class TransactionAmountText extends StatelessWidget {
   const TransactionAmountText(this.transaction, {Key? key}) : super(key: key);

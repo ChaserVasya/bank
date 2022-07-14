@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:test_frezux/application/helper/text/date_time_range_format.dart';
-import 'package:test_frezux/presentation/view_model/history.dart';
+import 'package:bank/application/helper/text/date_time_range_format.dart';
+import 'package:bank/presentation/view_model/history.dart';
 
 import '../overlay_menu.dart';
 

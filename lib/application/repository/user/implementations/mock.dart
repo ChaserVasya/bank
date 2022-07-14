@@ -1,5 +1,5 @@
-import 'package:test_frezux/data/repository/person/natural/mock.dart';
-import 'package:test_frezux/domain/entity/person/persons/natural.dart';
+import 'package:bank/data/repository/person/natural/mock.dart';
+import 'package:bank/domain/entity/person/persons/natural.dart';
 
 import '../user.dart';
 

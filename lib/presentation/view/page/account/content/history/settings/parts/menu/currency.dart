@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:money2/money2.dart';
 import 'package:provider/provider.dart';
-import 'package:test_frezux/presentation/view_model/history.dart';
+import 'package:bank/presentation/view_model/history.dart';
 
 class CurrencyMenu extends StatelessWidget {
   const CurrencyMenu({Key? key}) : super(key: key);

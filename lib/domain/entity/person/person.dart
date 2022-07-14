@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:test_frezux/domain/entity/account.dart';
+import 'package:bank/domain/entity/account.dart';
 
 abstract class Person {
   final Account account;

@@ -1,9 +1,9 @@
 import 'package:money2/money2.dart';
-import 'package:test_frezux/application/repository/user/implementations/mock.dart';
-import 'package:test_frezux/data/repository/person/legal/mock.dart';
-import 'package:test_frezux/data/repository/person/natural/mock.dart';
-import 'package:test_frezux/domain/entity/transaction.dart';
-import 'package:test_frezux/domain/repository/transaction.dart';
+import 'package:bank/application/repository/user/implementations/mock.dart';
+import 'package:bank/data/repository/person/legal/mock.dart';
+import 'package:bank/data/repository/person/natural/mock.dart';
+import 'package:bank/domain/entity/transaction.dart';
+import 'package:bank/domain/repository/transaction.dart';
 
 class MockTransactionRepository extends TransactionRepository {
   @override

@@ -1,6 +1,6 @@
-import 'package:test_frezux/data/repository/account/mock.dart';
-import 'package:test_frezux/domain/entity/person/persons/legal.dart';
-import 'package:test_frezux/domain/repository/person/legal.dart';
+import 'package:bank/data/repository/account/mock.dart';
+import 'package:bank/domain/entity/person/persons/legal.dart';
+import 'package:bank/domain/repository/person/legal.dart';
 
 class MockLegalPersonRepository extends LegalPersonRepository {
   @override

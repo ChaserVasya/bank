@@ -1,4 +1,4 @@
-import 'package:test_frezux/application/helper/transaction_participant.dart';
+import 'package:bank/application/helper/transaction_participant.dart';
 
 extension TransactionDirectionUtils on TransactionDirection {
   String toSign() {

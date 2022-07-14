@@ -1,6 +1,6 @@
 import 'package:money2/money2.dart';
-import 'package:test_frezux/domain/entity/account.dart';
-import 'package:test_frezux/domain/repository/account.dart';
+import 'package:bank/domain/entity/account.dart';
+import 'package:bank/domain/repository/account.dart';
 
 class MockAccountRepository extends AccountRepository {
   @override

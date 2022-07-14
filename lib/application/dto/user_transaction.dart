@@ -1,5 +1,5 @@
 import 'package:money2/money2.dart';
-import 'package:test_frezux/application/helper/transaction_participant.dart';
+import 'package:bank/application/helper/transaction_participant.dart';
 
 class UserTransaction {
   final TransactionDirection direction;

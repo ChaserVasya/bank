@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
-import 'package:test_frezux/application/dto/user_transaction.dart';
-import 'package:test_frezux/application/mapper/transaction.dart';
-import 'package:test_frezux/domain/repository/transaction.dart';
+import 'package:bank/application/dto/user_transaction.dart';
+import 'package:bank/application/mapper/transaction.dart';
+import 'package:bank/domain/repository/transaction.dart';
 
 class UserTransactionRepository {
   final _repository = GetIt.I.get<TransactionRepository>();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:test_frezux/presentation/view/template/content_fetcher.dart';
-import 'package:test_frezux/presentation/view_model/history.dart';
+import 'package:bank/presentation/view/template/content_fetcher.dart';
+import 'package:bank/presentation/view_model/history.dart';
 
 import 'list/list.dart';
 import 'settings/settings.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_frezux/presentation/view/plug/callback.dart';
+import 'package:bank/presentation/view/plug/callback.dart';
 
 class AccountPageAppBar extends AppBar {
   AccountPageAppBar({Key? key})

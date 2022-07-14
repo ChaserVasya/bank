@@ -1,5 +1,5 @@
 import 'package:money2/money2.dart';
-import 'package:test_frezux/domain/entity/person/person.dart';
+import 'package:bank/domain/entity/person/person.dart';
 
 class Transaction {
   final int id;

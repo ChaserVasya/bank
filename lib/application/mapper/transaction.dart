@@ -1,11 +1,11 @@
 import 'package:get_it/get_it.dart';
-import 'package:test_frezux/application/dto/user_transaction.dart';
-import 'package:test_frezux/application/helper/transaction_participant.dart';
-import 'package:test_frezux/application/repository/logo/logo.dart';
-import 'package:test_frezux/application/repository/user/user.dart';
-import 'package:test_frezux/domain/entity/person/persons/legal.dart';
-import 'package:test_frezux/domain/entity/person/persons/natural.dart';
-import 'package:test_frezux/domain/entity/transaction.dart';
+import 'package:bank/application/dto/user_transaction.dart';
+import 'package:bank/application/helper/transaction_participant.dart';
+import 'package:bank/application/repository/logo/logo.dart';
+import 'package:bank/application/repository/user/user.dart';
+import 'package:bank/domain/entity/person/persons/legal.dart';
+import 'package:bank/domain/entity/person/persons/natural.dart';
+import 'package:bank/domain/entity/transaction.dart';
 
 class TransactionMapper {
   final _legalPersonLogoRepository = GetIt.I.get<LegalPersonLogoRepository>();

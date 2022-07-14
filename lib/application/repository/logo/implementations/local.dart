@@ -1,4 +1,4 @@
-import 'package:test_frezux/domain/entity/person/persons/legal.dart';
+import 'package:bank/domain/entity/person/persons/legal.dart';
 
 import '../logo.dart';
 

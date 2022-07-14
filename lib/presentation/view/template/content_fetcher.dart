@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_frezux/presentation/view/plug/element.dart';
-import 'package:test_frezux/presentation/view_model/fetch_notifier.dart';
+import 'package:bank/presentation/view/plug/element.dart';
+import 'package:bank/presentation/view_model/fetch_notifier.dart';
 
 class ContentFetcher<T extends FetchNotifier> extends StatelessWidget {
   const ContentFetcher({

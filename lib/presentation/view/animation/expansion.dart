@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_frezux/presentation/view_model/expansion.dart';
+import 'package:bank/presentation/view_model/expansion.dart';
 
 class Expansion extends StatefulWidget {
   Expansion({required this.child, Key? key}) : super(key: key);

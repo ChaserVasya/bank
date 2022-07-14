@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
-import 'package:test_frezux/application/repository/user/user.dart';
-import 'package:test_frezux/domain/entity/person/person.dart';
-import 'package:test_frezux/domain/entity/transaction.dart';
+import 'package:bank/application/repository/user/user.dart';
+import 'package:bank/domain/entity/person/person.dart';
+import 'package:bank/domain/entity/transaction.dart';
 
 extension RelativeTransaction on Transaction {
   TransactionDirection? relativeTo(Person person) {
