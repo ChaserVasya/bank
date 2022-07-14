@@ -18,6 +18,7 @@ class AccountPage extends StatelessWidget {
           children: [
             AccountInfo(),
             History(),
+            // ElementPlug(),
           ],
         ),
       ),

@@ -1,9 +1,9 @@
 import 'package:money2/money2.dart';
 
-import '../currency_image.dart';
+import '../interface.dart';
 
 class LocalCurrencyImageRepository extends CurrencyImageRepository {
-  static const _currencyImageFolder = "assets/images/currency";
+  static const _currencyImageFolder = "assets/image/currency";
   static const _extension = "jpg";
 
   Future<String> getCurrencyImagePath(Currency currency) async {

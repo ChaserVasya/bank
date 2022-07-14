@@ -1,7 +1,7 @@
+import 'package:bank/application/repository/image/currency/interface.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
-import 'package:bank/application/repository/currency_image/currency_image.dart';
-import 'package:bank/application/repository/user/user.dart';
+import 'package:bank/application/repository/user/interface.dart';
 import 'package:bank/domain/entity/person/persons/natural.dart';
 import 'package:bank/presentation/view_model/fetch_notifier.dart';
 

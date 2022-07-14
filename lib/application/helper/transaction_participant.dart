@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
-import 'package:bank/application/repository/user/user.dart';
+import 'package:bank/application/repository/user/interface.dart';
 import 'package:bank/domain/entity/person/person.dart';
 import 'package:bank/domain/entity/transaction.dart';
 

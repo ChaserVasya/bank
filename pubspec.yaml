@@ -33,6 +33,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/images/
-    - assets/images/logos/
-    - assets/images/currencies/
+    - assets/image/icon/
+    - assets/image/logo/
+    - assets/image/currency/

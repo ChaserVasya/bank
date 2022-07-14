@@ -1,5 +1,5 @@
+import 'package:bank/application/repository/user/implementation/mock.dart';
 import 'package:money2/money2.dart';
-import 'package:bank/application/repository/user/implementations/mock.dart';
 import 'package:bank/data/repository/person/legal/mock.dart';
 import 'package:bank/data/repository/person/natural/mock.dart';
 import 'package:bank/domain/entity/transaction.dart';

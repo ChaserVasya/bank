@@ -1,12 +1,12 @@
 import 'package:bank/domain/entity/person/persons/legal.dart';
 
-import '../logo.dart';
+import '../interface.dart';
 
-class LocalLegalPersonLogoRepository extends LegalPersonLogoRepository {
-  static const _logosFolderPath = "assets/images/logos";
+class LocalLogoRepository extends LogoRepository {
+  static const _logosFolderPath = "assets/image/logo";
   static const _extension = "jpg";
 
-  String getByPerson(LegalPerson person) {
+  Future<String> getByPerson(LegalPerson person) async {
     final fileName = person.account.id.toString();
     return "$_logosFolderPath/$fileName.$_extension";
   }

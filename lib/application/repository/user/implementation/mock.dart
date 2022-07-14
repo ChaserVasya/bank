@@ -1,7 +1,7 @@
 import 'package:bank/data/repository/person/natural/mock.dart';
 import 'package:bank/domain/entity/person/persons/natural.dart';
 
-import '../user.dart';
+import '../interface.dart';
 
 class MockUserRepository extends UserRepository {
   Future<NaturalPerson> getUser() {

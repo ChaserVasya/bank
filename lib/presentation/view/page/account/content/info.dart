@@ -9,33 +9,36 @@ class AccountInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContentFetcher(
-      create: (_) => UserViewModel(),
-      builder: (context) {
-        final viewModel = context.watch<UserViewModel>();
-        final money = viewModel.user.account.money;
+    return Theme(
+      data: ThemeData.dark(),
+      child: ContentFetcher(
+        create: (_) => UserViewModel(),
+        builder: (context) {
+          final viewModel = context.watch<UserViewModel>();
+          final money = viewModel.user.account.money;
 
-        final code = money.currency.code;
-        final symbol = money.currency.symbol;
-        final amount = money.amount.format("0.00");
-
-        return Expansion(
-          child: Column(
-            children: [
-              CircleAvatar(
-                child: Image.asset(viewModel.currencyImagePath),
-              ),
-              Text("$code Account"),
-              Row(
-                children: [
-                  Text(symbol, style: Theme.of(context).textTheme.bodySmall),
-                  Text(amount),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
+          return Expansion(
+            child: Column(
+              children: [
+                CircleAvatar(
+                  foregroundImage: ExactAssetImage(viewModel.currencyImagePath),
+                ),
+                Text("${money.currency.code} Account"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      money.currency.symbol,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                    Text(money.format("S 0.00")),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

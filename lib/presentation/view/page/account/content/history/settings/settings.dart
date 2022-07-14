@@ -6,10 +6,11 @@ import 'package:bank/presentation/view/page/account/content/history/settings/par
 class HistorySettings extends StatelessWidget {
   const HistorySettings({Key? key}) : super(key: key);
 
+  //TODO Fix. Themes don`t work
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black54,
+    return Theme(
+      data: ThemeData.dark(),
       child: Column(
         children: [
           Text("Transaction history"),

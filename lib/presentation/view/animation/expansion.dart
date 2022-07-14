@@ -16,7 +16,7 @@ class _ExpansionState extends State<Expansion>
   late AnimationController _controller;
 
   static final _easeInTween = CurveTween(curve: Curves.easeIn);
-  static const _expand = Duration(milliseconds: 200);
+  static const _expand = Duration(milliseconds: 300);
 
   late Animation<double> _heightFactor;
 
