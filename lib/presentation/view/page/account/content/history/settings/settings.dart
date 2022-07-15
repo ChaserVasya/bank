@@ -9,18 +9,15 @@ class HistorySettings extends StatelessWidget {
   //TODO Fix. Themes don`t work
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData.dark(),
-      child: Column(
-        children: [
-          Text("Transaction history"),
-          CurrencyMenu(),
-          Row(children: [
-            RangeMenu(),
-            CustomRangeButton(),
-          ]),
-        ],
-      ),
+    return Column(
+      children: [
+        Text("Transaction history"),
+        CurrencyMenu(),
+        Row(children: [
+          Expanded(child: RangeMenu()),
+          CustomRangeButton(),
+        ]),
+      ],
     );
   }
 }

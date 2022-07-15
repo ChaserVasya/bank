@@ -14,7 +14,10 @@ class AccountPageScaffold extends StatelessWidget {
       child: Scaffold(
         appBar: AccountPageAppBar(),
         floatingActionButton: AccountPageFloatingButton(),
-        body: body,
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: body,
+        ),
       ),
     );
   }

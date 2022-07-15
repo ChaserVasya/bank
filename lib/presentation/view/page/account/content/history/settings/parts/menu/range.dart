@@ -20,15 +20,9 @@ class RangeMenu extends StatelessWidget {
       label: (settings.shortcut == null)
           ? settings.range.format(formatter)
           : settings.shortcut!.name,
-      menu: Column(
-        children: List.generate(
-          shortcuts.length,
-          (i) => TextButton(
-            onPressed: () => settings.shortcutRange = shortcuts[i],
-            child: Text(shortcuts[i].name),
-          ),
-        ),
-      ),
+      length: shortcuts.length,
+      onItemPressed: (i) => settings.shortcutRange = shortcuts[i],
+      itemContentBuilder: (_, i) => Text(shortcuts[i].name),
     );
   }
 }
