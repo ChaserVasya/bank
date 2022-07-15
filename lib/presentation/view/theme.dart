@@ -14,6 +14,7 @@ final lightTheme = ThemeData(
     surface: Colors.white70,
     onSurface: Colors.black,
   ),
+  floatingActionButtonTheme: floatingActionButtonTheme,
 );
 
 final darkTheme = ThemeData(
@@ -35,12 +36,19 @@ final darkTheme = ThemeData(
       foregroundColor: MaterialStateProperty.all(darkTextStyle.color),
     ),
   ),
+  floatingActionButtonTheme: floatingActionButtonTheme,
 );
 
-final lightBlackTheme = darkTheme.copyWith(
-  colorScheme: darkTheme.colorScheme.copyWith(
-    brightness: Brightness.light,
+final floatingActionButtonTheme = FloatingActionButtonThemeData(
+  shape: RoundedRectangleBorder(
+    borderRadius: const BorderRadius.all(
+      Radius.circular(16),
+    ),
+    side: BorderSide(
+      color: Colors.white70.withOpacity(0.12),
+    ),
   ),
+  extendedPadding: const EdgeInsets.symmetric(horizontal: 8),
 );
 
 const darkTextStyle = TextStyle(
