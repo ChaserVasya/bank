@@ -16,16 +16,16 @@ class AccountInfo extends StatelessWidget {
         final viewModel = context.watch<UserViewModel>();
         final money = viewModel.user.account.money;
         return Theme(
-          data: lightBlackTheme,
+          data: darkTheme,
           child: ColoredBox(
             color: Theme.of(context).colorScheme.primary,
             child: DefaultTextStyle(
               style: darkTextStyle,
               child: Builder(
                 builder: (context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Expansion(
+                  return Expansion(
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
                       child: Column(
                         children: [
                           CircleAvatar(

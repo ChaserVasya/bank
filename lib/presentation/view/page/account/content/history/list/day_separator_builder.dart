@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 typedef DateTimeSeparatorBuilder = DateTime Function(DateTime);
 
 class DaySeparatorBuilder {
-  final _formatter = DateFormat("E, MMMd");
+  final _formatter = DateFormat("E, MMM d");
 
   var _previous = DateTime.now();
 

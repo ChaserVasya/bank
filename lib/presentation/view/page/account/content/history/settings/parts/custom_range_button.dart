@@ -22,7 +22,12 @@ class CustomRangeButton extends StatelessWidget {
 
         if (range == null) return;
 
-        settings.range = range;
+        final inclusiveRange = DateTimeRange(
+          start: range.start,
+          end: range.end.add(const Duration(days: 1)), //Until end day inclusivly
+        );
+
+        settings.range = inclusiveRange;
       },
     );
   }

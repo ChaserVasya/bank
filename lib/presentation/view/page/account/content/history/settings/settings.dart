@@ -7,7 +7,6 @@ import 'package:bank/presentation/view/page/account/content/history/settings/par
 class HistorySettings extends StatelessWidget {
   const HistorySettings({Key? key}) : super(key: key);
 
-  //TODO Fix. Themes don`t work
   @override
   Widget build(BuildContext context) {
     return Theme(

@@ -1,3 +1,4 @@
+import 'package:bank/presentation/view/theme.dart';
 import 'package:flutter/material.dart';
 
 //TODO Fix. Overlay covers AppBar and notification bar
@@ -63,12 +64,12 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
       ),
       growable: false,
     );
-
     return OverlayEntry(
       builder: (_) {
         return GestureDetector(
           behavior: HitTestBehavior.translucent,
           onTap: _removeOverlay,
+          // onVerticalDragStart: (_) => _removeOverlay,
           child: SafeArea(
             child: CompositedTransformFollower(
               link: _layerLink,
@@ -78,14 +79,14 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
                 child: SizedBox(
                   height: _size!.height,
                   width: _size!.width,
-                  child: Material(
+                  child: Theme(
+                    data: darkTheme,
                     child: DecoratedBox(
-                      //TODO Feature. Find out how to copy all effective [OutlinedButton] decorations
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color:
-                              _button.defaultStyleOf(context).side!.resolve(materialStates)!.color,
+                          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
                         ),
+                        color: Theme.of(context).colorScheme.secondary,
                         borderRadius: const BorderRadius.all(Radius.circular(4)),
                       ),
                       //! Not [ListView] because it has ugly extra paddings
