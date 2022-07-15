@@ -8,8 +8,8 @@ class CustomRangeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.edit_calendar),
+    return OutlinedButton(
+      child: const Icon(Icons.edit_calendar),
       onPressed: () async {
         final settings = context.read<HistoryViewModel>();
         final allowedRange = LastDateRange.max;

@@ -6,13 +6,7 @@ import 'package:bank/presentation/view/template/content_fetcher.dart';
 import 'package:bank/presentation/view_model/user.dart';
 
 class AccountInfo extends StatelessWidget {
-  AccountInfo({Key? key}) : super(key: key);
-
-  final infoLightTheme = darkTheme.copyWith(
-    colorScheme: darkTheme.colorScheme.copyWith(
-      brightness: Brightness.light,
-    ),
-  );
+  const AccountInfo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,36 +16,65 @@ class AccountInfo extends StatelessWidget {
         final viewModel = context.watch<UserViewModel>();
         final money = viewModel.user.account.money;
         return Theme(
-          data: infoLightTheme,
-          child: Builder(
-            builder: (context) {
-              return Padding(
-                padding: const EdgeInsets.all(16),
-                child: Expansion(
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        foregroundImage: ExactAssetImage(viewModel.currencyImagePath),
-                      ),
-                      Text("${money.currency.code} Account"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+          data: lightBlackTheme,
+          child: ColoredBox(
+            color: Theme.of(context).colorScheme.primary,
+            child: DefaultTextStyle(
+              style: darkTextStyle,
+              child: Builder(
+                builder: (context) {
+                  return Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Expansion(
+                      child: Column(
                         children: [
-                          Text(
-                            money.currency.symbol,
-                            style: Theme.of(context).textTheme.bodySmall,
+                          CircleAvatar(
+                            radius: 40,
+                            foregroundImage: ExactAssetImage(viewModel.currencyImagePath),
                           ),
-                          Text(money.format("S 0.00")),
-                        ],
+                          Text(
+                            "${money.currency.code} Account",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(color: Colors.white70),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                money.format("S 0.00"),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineLarge!
+                                    .copyWith(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ].map((e) => _ChildrenSplitting(child: e)).toList(),
                       ),
-                    ],
-                  ),
-                ),
-              );
-            },
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
         );
       },
+    );
+  }
+}
+
+class _ChildrenSplitting extends StatelessWidget {
+  const _ChildrenSplitting({required this.child, Key? key}) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: child,
     );
   }
 }
