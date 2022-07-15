@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//TODO Fix. Overlay covers AppBar and notification bar
 //TODO Feature. Add expansion animation.
 class OverlayMenu extends StatefulWidget {
   final String label;
@@ -68,29 +69,32 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
         return GestureDetector(
           behavior: HitTestBehavior.translucent,
           onTap: _removeOverlay,
-          child: CompositedTransformFollower(
-            link: _layerLink,
-            showWhenUnlinked: false,
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: SizedBox(
-                height: _size!.height,
-                width: _size!.width,
-                child: Material(
-                  child: DecoratedBox(
-                    //TODO Feature. Find out how to copy all effective [OutlinedButton] decorations
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: _button.defaultStyleOf(context).side!.resolve(materialStates)!.color,
+          child: SafeArea(
+            child: CompositedTransformFollower(
+              link: _layerLink,
+              showWhenUnlinked: false,
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  height: _size!.height,
+                  width: _size!.width,
+                  child: Material(
+                    child: DecoratedBox(
+                      //TODO Feature. Find out how to copy all effective [OutlinedButton] decorations
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color:
+                              _button.defaultStyleOf(context).side!.resolve(materialStates)!.color,
+                        ),
+                        borderRadius: const BorderRadius.all(Radius.circular(4)),
                       ),
-                      borderRadius: const BorderRadius.all(Radius.circular(4)),
-                    ),
-                    //! Not [ListView] because it has ugly extra paddings
-                    //TODO Refactor. Create my own Sliver which doesn`t build unnecessary children
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: options,
+                      //! Not [ListView] because it has ugly extra paddings
+                      //TODO Refactor. Create my own Sliver which doesn`t build unnecessary children
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: options,
+                        ),
                       ),
                     ),
                   ),

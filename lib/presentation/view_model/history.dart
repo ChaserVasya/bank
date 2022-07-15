@@ -1,3 +1,5 @@
+import 'package:bank/application/helper/last_date_range.dart';
+import 'package:bank/application/helper/text/date_time_range_format.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
@@ -16,6 +18,7 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
   set currency(Currency currency) {
     _currency = currency;
     notifyListeners();
+    fetch();
   }
 
   late DateRangeShortcut? _shortcut = DateRangeShortcut.day;
@@ -27,12 +30,14 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
     _shortcut = null;
     _range = newRange;
     notifyListeners();
+    fetch();
   }
 
   set shortcutRange(DateRangeShortcut shortcut) {
     _shortcut = shortcut;
     _range = LastDateRange.getRange(shortcut);
     notifyListeners();
+    fetch();
   }
 
   ///TODO Refactor. Move filtering logic to application layer
@@ -51,6 +56,8 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
                 ? 0
                 : -1,
       );
+
+    notifyListeners();
   }
 }
 
@@ -59,45 +66,4 @@ enum DateRangeShortcut {
   week,
   month,
   all,
-}
-
-extension DateTimeRangeUtils on DateTimeRange {
-  bool includes(DateTime dateTime) {
-    return (start.isBefore(dateTime) && end.isAfter(dateTime)) ||
-        start.isAtSameMomentAs(dateTime) ||
-        end.isAtSameMomentAs(dateTime);
-  }
-}
-
-class LastDateRange {
-  static const _day = Duration(days: 1);
-  static const _week = Duration(days: 7);
-  static const _month = Duration(days: 30);
-  static const _max = Duration(days: 365 * 200);
-
-  static DateTimeRange getRange(DateRangeShortcut shortcut) {
-    final end = DateTime.now();
-
-    late final DateTime start;
-    switch (shortcut) {
-      case DateRangeShortcut.day:
-        start = end.subtract(_day);
-        break;
-      case DateRangeShortcut.week:
-        start = end.subtract(_week);
-        break;
-      case DateRangeShortcut.month:
-        start = end.subtract(_month);
-        break;
-      case DateRangeShortcut.all:
-        start = end.subtract(_max);
-        break;
-    }
-
-    return DateTimeRange(start: start, end: end);
-  }
-
-  static DateTimeRange get max {
-    return getRange(DateRangeShortcut.all);
-  }
 }

@@ -31,8 +31,8 @@ final mockTransactions = {
       Currencies().find("USD")!,
     ),
     dateTime: DateTime.now().subtract(const Duration(days: 1, hours: 3)),
-    receiver: mockUser,
-    sender: mockNaturalPersons[1]!,
+    receiver: mockNaturalPersons[1]!,
+    sender: mockUser,
   ),
   3: Transaction(
     id: 3,

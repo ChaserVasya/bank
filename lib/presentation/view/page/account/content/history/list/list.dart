@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:bank/presentation/view/page/account/content/history/list/tile/day_separator_builder.dart';
-import 'package:bank/presentation/view/page/account/content/history/list/tile/tile.dart';
 import 'package:bank/presentation/view/template/separated_column.dart';
 import 'package:bank/presentation/view_model/history.dart';
+
+import 'day_separator_builder.dart';
+import 'tile/tile.dart';
 
 class HistoryList extends StatelessWidget {
   HistoryList({Key? key}) : super(key: key);
@@ -15,10 +16,10 @@ class HistoryList extends StatelessWidget {
     final transactions = context.watch<HistoryViewModel>().transactions;
 
     return SeparatedColumn(
+      startWithSeparator: true,
       itemCount: transactions.length,
       itemBuilder: (i) => HistoryTile(transactions[i]),
-      separatorBuilder: (i) =>
-          _separator.build(context, transactions[i].dateTime),
+      separatorBuilder: (i) => _separator.build(transactions[i].dateTime),
     );
   }
 }

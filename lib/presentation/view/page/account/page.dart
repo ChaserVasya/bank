@@ -15,9 +15,9 @@ class AccountPage extends StatelessWidget {
       create: (_) => ExpansionNotifier(),
       child: AccountPageScaffold(
         body: ListView(
-          children: const [
+          children: [
             AccountInfo(),
-            History(),
+            const History(),
           ],
         ),
       ),

@@ -6,23 +6,31 @@ class SeparatedColumn extends StatelessWidget {
     required this.itemCount,
     required this.itemBuilder,
     required this.separatorBuilder,
+    this.startWithSeparator = false,
   }) : super(key: key);
 
   final int itemCount;
+  final bool startWithSeparator;
   final Widget Function(int index) itemBuilder;
-  final Widget Function(int index) separatorBuilder;
+  final Widget? Function(int index) separatorBuilder;
 
   @override
   Widget build(BuildContext context) {
+    final separatorsCount = itemCount + (startWithSeparator ? 0 : -1);
+    final totalWidgets = itemCount + separatorsCount;
+
+    Widget? widget;
     final List<Widget> widgets = [];
-    for (var index = 0; index < itemCount * 2 - 1; index++) {
-      final itemIndex = index ~/ 2;
-      late final Widget widget;
-      if (index.isEven) {
+    for (var i = 0; i < totalWidgets; i++) {
+      final itemIndex = i ~/ 2;
+
+      if (startWithSeparator ? i.isOdd : i.isEven)
         widget = itemBuilder(itemIndex);
-      } else {
+      else
         widget = separatorBuilder(itemIndex);
-      }
+
+      if (widget == null) continue;
+
       widgets.add(widget);
     }
     return Column(children: widgets);
