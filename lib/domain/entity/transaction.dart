@@ -17,9 +17,9 @@ class Transaction {
   });
 
   @override
-  operator ==(Object another) {
-    if (another is! Transaction) return false;
-    return this.id == another.id;
+  operator ==(Object other) {
+    if (other is! Transaction) return false;
+    return id == other.id;
   }
 
   @override

@@ -13,11 +13,11 @@ class RangeMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final shortcuts = DateRangeShortcut.values;
+    const shortcuts = DateRangeShortcut.values;
     final settings = context.watch<HistoryViewModel>();
 
     return OverlayMenu(
-      label: (settings.shortcut == null)
+      label: (settings.shortcut == null) //
           ? settings.range.format(formatter)
           : settings.shortcut!.name,
       length: shortcuts.length,

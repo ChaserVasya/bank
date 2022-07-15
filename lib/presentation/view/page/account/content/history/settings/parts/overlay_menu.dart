@@ -16,7 +16,7 @@ class OverlayMenu extends StatefulWidget {
   });
 
   @override
-  _OverlayMenuState createState() => _OverlayMenuState();
+  State<OverlayMenu> createState() => _OverlayMenuState();
 }
 
 class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
@@ -47,18 +47,17 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
           widget.onItemPressed(i);
           _removeOverlay();
         },
+        style: OutlinedButton.styleFrom(
+          side: const BorderSide(
+            style: BorderStyle.none,
+          ),
+        ),
         child: Row(
           children: [
             widget.itemContentBuilder(context, i),
-            Spacer(),
-            if (i == 0) Icon(Icons.arrow_upward),
+            const Spacer(),
+            if (i == 0) const Icon(Icons.arrow_upward),
           ],
-        ),
-        //To copy target button style except border
-        style: OutlinedButton.styleFrom(
-          side: BorderSide(
-            style: BorderStyle.none,
-          ),
         ),
       ),
       growable: false,
@@ -77,7 +76,6 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
               child: SizedBox(
                 height: _size!.height,
                 width: _size!.width,
-                //! Just to avoid closing on overlay tap
                 child: Material(
                   child: DecoratedBox(
                     //TODO Feature. Find out how to copy all effective [OutlinedButton] decorations
@@ -85,7 +83,7 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
                       border: Border.all(
                         color: _button.defaultStyleOf(context).side!.resolve(materialStates)!.color,
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(4)),
+                      borderRadius: const BorderRadius.all(Radius.circular(4)),
                     ),
                     //! Not [ListView] because it has ugly extra paddings
                     //TODO Refactor. Create my own Sliver which doesn`t build unnecessary children
@@ -121,8 +119,8 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
             child: Row(
               children: [
                 Text(widget.label),
-                Spacer(),
-                Icon(Icons.arrow_downward),
+                const Spacer(),
+                const Icon(Icons.arrow_downward),
               ],
             ),
           );

@@ -30,6 +30,6 @@ class DaySeparatorBuilder {
   }
 
   Widget _buildEmptySeparator() {
-    return Divider(height: 0);
+    return const Divider(height: 0);
   }
 }

@@ -13,7 +13,7 @@ class AccountPageScaffold extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AccountPageAppBar(),
-        floatingActionButton: AccountPageFloatingButton(),
+        floatingActionButton: const AccountPageFloatingButton(),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: body,

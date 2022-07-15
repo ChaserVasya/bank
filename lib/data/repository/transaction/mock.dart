@@ -7,8 +7,7 @@ import 'package:bank/domain/repository/transaction.dart';
 
 class MockTransactionRepository extends TransactionRepository {
   @override
-  Future<Map<int, Transaction>> getAll() =>
-      Future.value(Map.from(mockTransactions));
+  Future<Map<int, Transaction>> getAll() => Future.value(Map.from(mockTransactions));
 
   @override
   Future<Transaction> getByID(int id) => Future.value(mockTransactions[id]!);
@@ -21,7 +20,7 @@ final mockTransactions = {
       "2312.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 1, hours: 2)),
+    dateTime: DateTime.now().subtract(const Duration(days: 1, hours: 2)),
     receiver: mockLegalPersons[4]!,
     sender: mockUser,
   ),
@@ -31,7 +30,7 @@ final mockTransactions = {
       "2312.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 1, hours: 3)),
+    dateTime: DateTime.now().subtract(const Duration(days: 1, hours: 3)),
     receiver: mockUser,
     sender: mockNaturalPersons[1]!,
   ),
@@ -41,7 +40,7 @@ final mockTransactions = {
       "23.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 1, hours: 4)),
+    dateTime: DateTime.now().subtract(const Duration(days: 1, hours: 4)),
     receiver: mockLegalPersons[5]!,
     sender: mockUser,
   ),
@@ -51,7 +50,7 @@ final mockTransactions = {
       "2312.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 1, hours: 5)),
+    dateTime: DateTime.now().subtract(const Duration(days: 1, hours: 5)),
     receiver: mockLegalPersons[6]!,
     sender: mockUser,
   ),
@@ -61,7 +60,7 @@ final mockTransactions = {
       "222.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 1, hours: 8)),
+    dateTime: DateTime.now().subtract(const Duration(days: 1, hours: 8)),
     receiver: mockUser,
     sender: mockNaturalPersons[2]!,
   ),
@@ -71,7 +70,7 @@ final mockTransactions = {
       "111.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 2, minutes: 10)),
+    dateTime: DateTime.now().subtract(const Duration(days: 2, minutes: 10)),
     receiver: mockLegalPersons[7]!,
     sender: mockUser,
   ),
@@ -81,7 +80,7 @@ final mockTransactions = {
       "54.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 2, minutes: 50)),
+    dateTime: DateTime.now().subtract(const Duration(days: 2, minutes: 50)),
     receiver: mockLegalPersons[8]!,
     sender: mockUser,
   ),
@@ -91,7 +90,7 @@ final mockTransactions = {
       "11",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 4, hours: 4, minutes: 3)),
+    dateTime: DateTime.now().subtract(const Duration(days: 4, hours: 4, minutes: 3)),
     receiver: mockLegalPersons[9]!,
     sender: mockUser,
   ),
@@ -101,7 +100,7 @@ final mockTransactions = {
       "500.13",
       Currencies().find("USD")!,
     ),
-    dateTime: DateTime.now().subtract(Duration(days: 4, hours: 7, minutes: 50)),
+    dateTime: DateTime.now().subtract(const Duration(days: 4, hours: 7, minutes: 50)),
     receiver: mockLegalPersons[10]!,
     sender: mockUser,
   ),

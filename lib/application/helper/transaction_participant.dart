@@ -6,10 +6,8 @@ import 'package:bank/domain/entity/transaction.dart';
 
 extension RelativeTransaction on Transaction {
   TransactionDirection? relativeTo(Person person) {
-    if (person.account == this.sender.account)
-      return TransactionDirection.outgoing;
-    if (person.account == this.receiver.account)
-      return TransactionDirection.incoming;
+    if (person.account == sender.account) return TransactionDirection.outgoing;
+    if (person.account == receiver.account) return TransactionDirection.incoming;
     return null;
   }
 
@@ -19,8 +17,7 @@ extension RelativeTransaction on Transaction {
   }
 
   TransactionParticipant? participant(Person person) {
-    if ((receiver == person) || (sender == person))
-      return TransactionParticipant._(this, person);
+    if ((receiver == person) || (sender == person)) return TransactionParticipant._(this, person);
     return null;
   }
 }
@@ -47,9 +44,9 @@ class TransactionParticipant {
   }
 
   @override
-  operator ==(Object another) {
-    if (another is! TransactionParticipant) return false;
-    return (person == another.person) && (transaction == another.transaction);
+  operator ==(Object other) {
+    if (other is! TransactionParticipant) return false;
+    return (person == other.person) && (transaction == other.transaction);
   }
 
   @override

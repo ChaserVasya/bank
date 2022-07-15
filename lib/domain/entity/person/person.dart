@@ -8,9 +8,9 @@ abstract class Person {
   const Person({required this.name, required this.account});
 
   @override
-  operator ==(Object another) {
-    if (another is! Person) return false;
-    return (this.name == another.name) && (this.account == another.account);
+  operator ==(Object other) {
+    if (other is! Person) return false;
+    return (name == other.name) && (account == other.account);
   }
 
   @override

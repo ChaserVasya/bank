@@ -11,11 +11,11 @@ class HistorySettings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Transaction history"),
-        CurrencyMenu(),
+        const Text("Transaction history"),
+        const CurrencyMenu(),
         Row(children: [
           Expanded(child: RangeMenu()),
-          CustomRangeButton(),
+          const CustomRangeButton(),
         ]),
       ],
     );

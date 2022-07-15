@@ -14,7 +14,7 @@ class History extends StatelessWidget {
       create: (_) => HistoryViewModel(),
       builder: (_) => Column(
         children: [
-          HistorySettings(),
+          const HistorySettings(),
           HistoryList(),
         ],
       ),

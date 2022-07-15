@@ -4,6 +4,7 @@ import 'package:bank/domain/entity/person/persons/natural.dart';
 import '../interface.dart';
 
 class MockUserRepository extends UserRepository {
+  @override
   Future<NaturalPerson> getUser() {
     return Future.value(mockUser);
   }

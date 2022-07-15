@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:bank/presentation/view_model/expansion.dart';
 
 class Expansion extends StatefulWidget {
-  Expansion({required this.child, Key? key}) : super(key: key);
+  const Expansion({required this.child, Key? key}) : super(key: key);
 
   final Widget child;
 
@@ -11,8 +11,7 @@ class Expansion extends StatefulWidget {
   State<Expansion> createState() => _ExpansionState();
 }
 
-class _ExpansionState extends State<Expansion>
-    with SingleTickerProviderStateMixin {
+class _ExpansionState extends State<Expansion> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   static final _easeInTween = CurveTween(curve: Curves.easeIn);
@@ -20,6 +19,7 @@ class _ExpansionState extends State<Expansion>
 
   late Animation<double> _heightFactor;
 
+  @override
   void initState() {
     super.initState();
     _controller = AnimationController(duration: _expand, vsync: this);

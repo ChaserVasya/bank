@@ -21,8 +21,7 @@ class ContentFetcher<T extends FetchNotifier> extends StatelessWidget {
         return FutureBuilder<void>(
           future: context.read<T>().fetch(),
           builder: (_, snap) {
-            if (snap.connectionState != ConnectionState.done)
-              return ElementPlug();
+            if (snap.connectionState != ConnectionState.done) return const ElementPlug();
 
             return Builder(builder: builder);
           },

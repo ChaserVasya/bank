@@ -7,9 +7,9 @@ class Account {
   const Account({required this.id, required this.money});
 
   @override
-  operator ==(Object another) {
-    if (another is! Account) return false;
-    return this.id == another.id;
+  operator ==(Object other) {
+    if (other is! Account) return false;
+    return id == other.id;
   }
 
   @override
