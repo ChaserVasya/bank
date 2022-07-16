@@ -1,14 +1,13 @@
 import 'package:bank/presentation/view/theme.dart';
 import 'package:flutter/material.dart';
 
-//TODO Feature. Add expansion animation.
 class OverlayMenu extends StatefulWidget {
   final String label;
   final int length;
   final IndexedWidgetBuilder itemContentBuilder;
   final void Function(int) onItemPressed;
 
-  //! Menu column is persistant but I request builders for future transition to [ListView]
+  //! Menu column is persistant but I request builders (not iterables) for future transition to [ListView]
   const OverlayMenu({
     super.key,
     required this.label,
@@ -26,6 +25,10 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
   OverlayEntry? _overlayEntry;
   Size? _size;
   late OutlinedButton _button;
+  final _opacityNotifier = ValueNotifier(0.0);
+
+  static const _curve = Curves.easeOut;
+  static const _duration = Duration(milliseconds: 200);
 
   void _setOverlay() {
     if (_overlayEntry == null) {
@@ -36,8 +39,14 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
 
   void _removeOverlay() {
     if (_overlayEntry != null) {
-      _overlayEntry!.remove();
-      _overlayEntry = null;
+      _opacityNotifier.value = 0;
+      Future.delayed(
+        _duration,
+        () => setState(() {
+          _overlayEntry!.remove();
+          _overlayEntry = null;
+        }),
+      );
     }
   }
 
@@ -67,38 +76,52 @@ class _OverlayMenuState extends State<OverlayMenu> with MaterialStateMixin {
 
     return OverlayEntry(
       builder: (_) {
-        return GestureDetector(
-          behavior: HitTestBehavior.translucent,
-          onTap: _removeOverlay,
-          child: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.only(top: kToolbarHeight),
-              child: ClipRect(
-                clipBehavior: Clip.hardEdge,
-                child: CompositedTransformFollower(
-                  link: _layerLink,
-                  showWhenUnlinked: false,
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: SizedBox(
-                      height: _size!.height,
-                      width: _size!.width,
-                      child: Theme(
-                        data: darkTheme,
-                        child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+        //TODO Refactor. Maybe move to statefull
+        Future(() => _opacityNotifier.value = 1);
+
+        return ValueListenableBuilder<double>(
+          valueListenable: _opacityNotifier,
+          builder: (_, opacity, child) {
+            return AnimatedOpacity(
+              opacity: opacity,
+              duration: _duration,
+              curve: _curve,
+              child: child,
+            );
+          },
+          child: GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onTap: _removeOverlay,
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.only(top: kToolbarHeight),
+                child: ClipRect(
+                  clipBehavior: Clip.hardEdge,
+                  child: CompositedTransformFollower(
+                    link: _layerLink,
+                    showWhenUnlinked: false,
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: SizedBox(
+                        height: _size!.height,
+                        width: _size!.width,
+                        child: Theme(
+                          data: darkTheme,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.12),
+                              ),
+                              color: Theme.of(context).colorScheme.secondary,
+                              borderRadius: const BorderRadius.all(Radius.circular(4)),
                             ),
-                            color: Theme.of(context).colorScheme.secondary,
-                            borderRadius: const BorderRadius.all(Radius.circular(4)),
-                          ),
-                          //! Not [ListView] because it has ugly extra paddings
-                          //TODO Refactor. Create my own Sliver which doesn`t build unnecessary children
-                          child: SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: options,
+                            //! Not [ListView] because it has ugly extra paddings
+                            //TODO Refactor. Create my own Sliver which doesn`t build unnecessary children
+                            child: SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: options,
+                              ),
                             ),
                           ),
                         ),
