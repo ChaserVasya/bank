@@ -1,4 +1,4 @@
-import 'package:bank/presentation/view/template/overlay_menu.dart';
+import 'package:bank/presentation/view/template/overlay_menu/overlay_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:money2/money2.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,8 @@ class CurrencyMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final currencies = Currencies().getRegistered().toList();
     final settings = context.watch<HistoryViewModel>();
+
+    currencies.removeWhere((e) => e == settings.currency);
 
     return OverlayMenu(
       label: settings.currency.name,

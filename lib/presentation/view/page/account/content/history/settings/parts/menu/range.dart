@@ -1,4 +1,4 @@
-import 'package:bank/presentation/view/template/overlay_menu.dart';
+import 'package:bank/presentation/view/template/overlay_menu/overlay_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -12,8 +12,10 @@ class RangeMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const shortcuts = DateRangeShortcut.values;
+    final shortcuts = DateRangeShortcut.values.toList();
     final settings = context.watch<HistoryViewModel>();
+
+    shortcuts.removeWhere((e) => e == settings.shortcut);
 
     return OverlayMenu(
       label: (settings.shortcut == null) //
