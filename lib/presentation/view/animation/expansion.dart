@@ -14,15 +14,15 @@ class Expansion extends StatefulWidget {
 class _ExpansionState extends State<Expansion> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
-  static final _easeInTween = CurveTween(curve: Curves.easeIn);
-  static const _expand = Duration(milliseconds: 300);
+  static final _easeInTween = CurveTween(curve: Curves.easeInOut);
+  static const _duration = Duration(milliseconds: 400);
 
   late Animation<double> _heightFactor;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(duration: _expand, vsync: this);
+    _controller = AnimationController(duration: _duration, vsync: this);
     _heightFactor = _controller.drive(_easeInTween);
   }
 
@@ -49,22 +49,26 @@ class _ExpansionState extends State<Expansion> with SingleTickerProviderStateMix
 
     final closed = !isExpanded && _controller.isDismissed;
 
-    return AnimatedBuilder(
-      animation: _controller.view,
-      builder: (_, child) => Align(
-        heightFactor: _heightFactor.value,
-        //TODO Check. How useful is Offstage in this case?
-        child: Offstage(
-          offstage: closed,
-          child: TickerMode(
-            enabled: !closed,
-            child: Container(
-              child: child,
+    return AnimatedOpacity(
+      duration: _duration,
+      opacity: isExpanded ? 1 : 0,
+      child: AnimatedBuilder(
+        animation: _controller.view,
+        builder: (_, child) => Align(
+          heightFactor: _heightFactor.value,
+          //TODO Check. How useful is Offstage in this case?
+          child: Offstage(
+            offstage: closed,
+            child: TickerMode(
+              enabled: !closed,
+              child: Container(
+                child: child,
+              ),
             ),
           ),
         ),
+        child: closed ? null : widget.child,
       ),
-      child: closed ? null : widget.child,
     );
   }
 
