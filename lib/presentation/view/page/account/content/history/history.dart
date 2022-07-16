@@ -13,8 +13,8 @@ class History extends StatelessWidget {
     return ContentFetcher(
       create: (_) => HistoryViewModel(),
       builder: (_) => Column(
-        children: [
-          const HistorySettings(),
+        children: const [
+          HistorySettings(),
           HistoryList(),
         ],
       ),
