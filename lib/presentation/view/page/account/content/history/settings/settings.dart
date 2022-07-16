@@ -9,6 +9,35 @@ class HistorySettings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return _HistorySettingsStyle(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text("Transaction history"),
+          ),
+          const CurrencyMenu(),
+          Row(
+            children: [
+              Expanded(child: RangeMenu()),
+              const SizedBox(width: 16),
+              const CustomRangeButton(),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _HistorySettingsStyle extends StatelessWidget {
+  const _HistorySettingsStyle({required this.child, Key? key}) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
     return Theme(
       data: darkTheme,
       child: Builder(builder: (context) {
@@ -17,22 +46,8 @@ class HistorySettings extends StatelessWidget {
           child: DefaultTextStyle(
             style: darkTextStyle,
             child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text("Transaction history"),
-                  ),
-                  const CurrencyMenu(),
-                  Row(children: [
-                    Expanded(child: RangeMenu()),
-                    const SizedBox(width: 16),
-                    const CustomRangeButton(),
-                  ]),
-                ],
-              ),
+              padding: const EdgeInsets.all(16.0),
+              child: child,
             ),
           ),
         );
