@@ -1,4 +1,5 @@
 import 'package:bank/presentation/view_model/history.dart';
+import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 
 class LastDateRange {
@@ -8,7 +9,7 @@ class LastDateRange {
   static const _max = Duration(days: 365 * 200);
 
   static DateTimeRange getRange(DateRangeShortcut shortcut) {
-    final end = DateTime.now();
+    final end = clock.now();
 
     late final DateTime start;
     switch (shortcut) {
