@@ -1,5 +1,4 @@
 import 'package:bank/application/helper/last_date_range.dart';
-import 'package:bank/application/helper/text/date_time_range_format.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
@@ -40,22 +39,15 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
     fetch();
   }
 
-  ///TODO Refactor. Move filtering logic to application layer
   ///TODO Refactor. Optimize queries
   @override
   Future<void> fetch() async {
-    _transactions = await _repository.getAll();
-    _transactions = _transactions
-        .where((e) => e.amount.currency == currency)
-        .where((e) => range.includes(e.dateTime))
-        .toList()
-      ..sort(
-        (one, another) => one.dateTime.isBefore(another.dateTime)
-            ? 1
-            : one.dateTime.isAtSameMomentAs(another.dateTime)
-                ? 0
-                : -1,
-      );
+    final request = TransactionRequest(
+      range: range,
+      currency: currency,
+    );
+
+    _transactions = await _repository.getAll(request);
 
     notifyListeners();
   }
