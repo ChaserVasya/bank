@@ -8,6 +8,7 @@ class TransactionTileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
+      backgroundColor: Theme.of(context).colorScheme.surface,
       foregroundImage: ExactAssetImage(imagePath),
     );
   }

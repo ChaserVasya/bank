@@ -15,6 +15,8 @@ final lightTheme = ThemeData(
     onSurface: Colors.black,
   ),
   floatingActionButtonTheme: floatingActionButtonTheme,
+  primaryColorLight: Colors.white70,
+  primaryColorDark: Colors.black,
 );
 
 final darkTheme = ThemeData(
@@ -37,6 +39,8 @@ final darkTheme = ThemeData(
     ),
   ),
   floatingActionButtonTheme: floatingActionButtonTheme,
+  primaryColorLight: Colors.white70,
+  primaryColorDark: Colors.black,
 );
 
 final floatingActionButtonTheme = FloatingActionButtonThemeData(
