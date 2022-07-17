@@ -4,6 +4,7 @@ import 'package:bank/presentation/view/page/account/content/history/settings/par
 import 'package:bank/presentation/view/page/account/content/history/settings/parts/menu/currency.dart';
 import 'package:bank/presentation/view/page/account/content/history/settings/parts/menu/range.dart';
 
+//TODO Fix. On Windows there is no space between buttons.
 class HistorySettings extends StatelessWidget {
   const HistorySettings({Key? key}) : super(key: key);
 
