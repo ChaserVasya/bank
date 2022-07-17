@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bank/presentation/view/plug/element.dart';
-import 'package:bank/presentation/view_model/fetch_notifier.dart';
+import 'package:bank/presentation/view_model/awaiting_notifier.dart';
 
 class Awaiter<T extends AwaitingNotifier> extends StatelessWidget {
   const Awaiter({

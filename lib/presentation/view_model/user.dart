@@ -1,5 +1,5 @@
 import 'package:bank/application/repository/image/currency/interface.dart';
-import 'package:bank/presentation/view_model/fetch_notifier.dart';
+import 'package:bank/presentation/view_model/awaiting_notifier.dart';
 import 'package:get_it/get_it.dart';
 import 'package:bank/application/repository/user/interface.dart';
 import 'package:bank/domain/entity/person/persons/natural.dart';

@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
 import 'package:bank/application/dto/user_transaction.dart';
 import 'package:bank/application/repository/transaction_details.dart';
-import 'package:bank/presentation/view_model/fetch_notifier.dart';
+import 'package:bank/presentation/view_model/awaiting_notifier.dart';
 
 class HistoryViewModel extends AwaitingNotifier {
   HistoryViewModel() {
