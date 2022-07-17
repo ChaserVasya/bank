@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:bank/application/dto/user_transaction.dart';
+import 'package:bank/application/dto/transaction_context.dart';
 import 'package:bank/application/helper/text/transaction_direction.dart';
 
 class TransactionAmountText extends StatelessWidget {
   const TransactionAmountText(this.transaction, {Key? key}) : super(key: key);
 
-  final UserTransaction transaction;
+  final TransactionContext transaction;
 
   @override
   Widget build(BuildContext context) {

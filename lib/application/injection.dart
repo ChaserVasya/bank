@@ -5,7 +5,7 @@ import 'package:bank/application/repository/image/icon/implementation/local.dart
 import 'package:bank/application/repository/image/icon/interface.dart';
 import 'package:bank/application/repository/image/logo/implementation/local.dart';
 import 'package:bank/application/repository/image/logo/interface.dart';
-import 'package:bank/application/repository/transaction_details.dart';
+import 'package:bank/application/repository/transaction_context.dart';
 import 'package:bank/application/repository/user/implementation/mock.dart';
 import 'package:bank/application/repository/user/interface.dart';
 import 'package:bank/data/repository/account/mock.dart';
@@ -58,8 +58,8 @@ Future<void> inject() async {
   getIt.registerSingleton<CurrencyImageRepository>(
     LocalCurrencyImageRepository(),
   );
-  getIt.registerSingleton<UserTransactionRepository>(
-    UserTransactionRepository(),
+  getIt.registerSingleton<TransactionContextRepository>(
+    TransactionContextRepository(),
   );
   getIt.registerSingleton<CurrencyRepository>(
     LocalCurrencyRepository(),

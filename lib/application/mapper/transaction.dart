@@ -1,7 +1,7 @@
 import 'package:bank/application/repository/image/icon/interface.dart';
 import 'package:bank/application/repository/image/logo/interface.dart';
 import 'package:get_it/get_it.dart';
-import 'package:bank/application/dto/user_transaction.dart';
+import 'package:bank/application/dto/transaction_context.dart';
 import 'package:bank/application/helper/transaction_participant.dart';
 import 'package:bank/application/repository/user/interface.dart';
 import 'package:bank/domain/entity/person/persons/legal.dart';
@@ -15,18 +15,17 @@ class TransactionMapper {
   final _userRepository = GetIt.I.get<UserRepository>();
   final _iconRepository = GetIt.I.get<IconRepository>();
 
-  Future<UserTransaction> toUserTransaction(Transaction transaction) async {
+  Future<TransactionContext> toTransactionContext(Transaction transaction) async {
     final user = await _userRepository.getUser();
 
     final participant = transaction.participant(user);
 
-    if (participant == null)
-      throw Exception("User doesn`t participate in the transaction");
+    if (participant == null) throw Exception("User doesn`t participate in the transaction");
 
     final anotherParticipant = participant.another();
     final direction = transaction.relativeTo(user)!;
 
-    return UserTransaction(
+    return TransactionContext(
       direction: direction,
       dateTime: transaction.dateTime,
       anotherParticipantName: anotherParticipant.person.name,
@@ -41,8 +40,7 @@ class TransactionMapper {
   ) async {
     if (anotherPerson is LegalPerson)
       return _logoRepository.getByPerson(anotherPerson);
-    else if (anotherPerson is NaturalPerson)
-      return _iconRepository.getByDirection(direction);
+    else if (anotherPerson is NaturalPerson) return _iconRepository.getByDirection(direction);
 
     throw Exception("Must be never reached");
   }

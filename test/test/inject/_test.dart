@@ -5,7 +5,7 @@ import 'package:bank/application/mapper/transaction.dart';
 import 'package:bank/application/repository/image/currency/interface.dart';
 import 'package:bank/application/repository/image/icon/interface.dart';
 import 'package:bank/application/repository/image/logo/interface.dart';
-import 'package:bank/application/repository/transaction_details.dart';
+import 'package:bank/application/repository/transaction_context.dart';
 import 'package:bank/application/repository/user/interface.dart';
 import 'package:bank/data/repository/person/legal/mock.dart';
 import 'package:bank/domain/repository/account.dart';
@@ -59,10 +59,10 @@ void main() async {
       final mapper = getIt.get<TransactionMapper>();
 
       final transactions = await transactionRepository.getAll();
-      await mapper.toUserTransaction(transactions.values.first);
+      await mapper.toTransactionContext(transactions.values.first);
     });
-    test("[UserTransactionRepository]", () async {
-      final repository = getIt.get<UserTransactionRepository>();
+    test("[TransactionContextRepository]", () async {
+      final repository = getIt.get<TransactionContextRepository>();
       final currencyRepository = getIt.get<CurrencyRepository>();
 
       final range = LastDateRange.getRange(DateRangeShortcut.all);

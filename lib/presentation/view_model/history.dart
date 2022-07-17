@@ -3,8 +3,8 @@ import 'package:bank/domain/repository/currency.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
-import 'package:bank/application/dto/user_transaction.dart';
-import 'package:bank/application/repository/transaction_details.dart';
+import 'package:bank/application/dto/transaction_context.dart';
+import 'package:bank/application/repository/transaction_context.dart';
 import 'package:bank/presentation/view_model/awaiting_notifier.dart';
 
 class HistoryViewModel extends AwaitingNotifier {
@@ -15,11 +15,11 @@ class HistoryViewModel extends AwaitingNotifier {
   static const _defaultCurrencyCode = "USD";
   static const _defaultShortcut = DateRangeShortcut.day;
 
-  final _transactionRepository = GetIt.I.get<UserTransactionRepository>();
+  final _transactionRepository = GetIt.I.get<TransactionContextRepository>();
   final _currencyRepository = GetIt.I.get<CurrencyRepository>();
 
-  late List<UserTransaction> _transactions;
-  List<UserTransaction> get transactions => _transactions;
+  late List<TransactionContext> _transactions;
+  List<TransactionContext> get transactions => _transactions;
 
   late final List<Currency> _currencies;
   List<Currency> get currencies => _currencies.toList();
@@ -52,7 +52,7 @@ class HistoryViewModel extends AwaitingNotifier {
   }
 
   //TODO Refactor. Optimize queries
-  Future<List<UserTransaction>> request([TransactionRequest? request]) async {
+  Future<List<TransactionContext>> request([TransactionRequest? request]) async {
     request ??= TransactionRequest(
       range: _range,
       currency: _currentCurrency,
