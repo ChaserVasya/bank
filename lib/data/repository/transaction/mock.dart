@@ -141,7 +141,37 @@ final mockTransactions = {
       "1333.13",
       Currencies().find("RUB")!,
     ),
-    dateTime: clock.now().subtract(const Duration(days: 4, hours: 2, minutes: 30)),
+    dateTime: clock.now().subtract(const Duration(days: 1, hours: 2, minutes: 30)),
+    receiver: mockLegalPersons[8]!,
+    sender: mockUser,
+  ),
+  14: Transaction(
+    id: 14,
+    amount: Money.parseWithCurrency(
+      "1333.13",
+      Currencies().find("RUB")!,
+    ),
+    dateTime: clock.now().subtract(const Duration(days: 2, hours: 2, minutes: 30)),
+    receiver: mockUser,
+    sender: mockNaturalPersons[2]!,
+  ),
+  15: Transaction(
+    id: 15,
+    amount: Money.parseWithCurrency(
+      "1333.13",
+      Currencies().find("RUB")!,
+    ),
+    dateTime: clock.now().subtract(const Duration(days: 3, hours: 2, minutes: 30)),
+    receiver: mockNaturalPersons[1]!,
+    sender: mockUser,
+  ),
+  16: Transaction(
+    id: 16,
+    amount: Money.parseWithCurrency(
+      "1333.13",
+      Currencies().find("RUB")!,
+    ),
+    dateTime: clock.now().subtract(const Duration(days: 8, hours: 2, minutes: 30)),
     receiver: mockLegalPersons[8]!,
     sender: mockUser,
   ),
