@@ -125,4 +125,24 @@ final mockTransactions = {
     receiver: mockLegalPersons[5]!,
     sender: mockUser,
   ),
+  12: Transaction(
+    id: 12,
+    amount: Money.parseWithCurrency(
+      "20.13",
+      Currencies().find("RUB")!,
+    ),
+    dateTime: clock.now().subtract(const Duration(hours: 2, minutes: 30)),
+    receiver: mockLegalPersons[5]!,
+    sender: mockUser,
+  ),
+  13: Transaction(
+    id: 13,
+    amount: Money.parseWithCurrency(
+      "1333.13",
+      Currencies().find("RUB")!,
+    ),
+    dateTime: clock.now().subtract(const Duration(days: 4, hours: 2, minutes: 30)),
+    receiver: mockLegalPersons[8]!,
+    sender: mockUser,
+  ),
 };
