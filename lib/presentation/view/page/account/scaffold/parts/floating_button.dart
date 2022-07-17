@@ -9,7 +9,7 @@ class AccountPageFloatingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final expansionNotifier = context.watch<ExpansionNotifier>();
     return Align(
-      alignment: const Alignment(1, 0),
+      alignment: const Alignment(1, 0.8),
       child: FloatingActionButton.extended(
         onPressed: expansionNotifier.switchValue,
         label: Text(expansionNotifier.isExpanded ? "Hide" : "Show"),
