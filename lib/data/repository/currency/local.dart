@@ -18,19 +18,4 @@ class LocalCurrencyRepository extends CurrencyRepository {
     final all = await getAll();
     return all.singleWhere((e) => e.code == code);
   }
-
-  @override
-  List<Currency>? getAllCached() {
-    final all = Currencies().getRegistered();
-    return all.where((e) => _allowedCodes.contains(e.code)).toList();
-  }
-
-  @override
-  Currency? getCachedByCode(String code) {
-    final all = getAllCached();
-    return all!.singleWhere((e) => e.code == code);
-  }
-
-  @override
-  Future<List<Currency>?> fetch() async => await getAll();
 }

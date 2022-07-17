@@ -61,9 +61,7 @@ Future<void> inject() async {
   getIt.registerSingleton<UserTransactionRepository>(
     UserTransactionRepository(),
   );
-  getIt.registerSingleton<CurrencyRepository>(await (() async {
-    final repository = LocalCurrencyRepository();
-    await repository.fetch();
-    return repository;
-  }()));
+  getIt.registerSingleton<CurrencyRepository>(
+    LocalCurrencyRepository(),
+  );
 }
