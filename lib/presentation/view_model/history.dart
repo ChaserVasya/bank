@@ -28,8 +28,8 @@ class HistoryViewModel extends AwaitingNotifier {
   Currency get currentCurrency => _currentCurrency;
   set currentCurrency(Currency currency) {
     _currentCurrency = currency;
-    notifyListeners();
     processing = request();
+    notifyListeners();
   }
 
   late DateRangeShortcut? _shortcut;
@@ -67,11 +67,15 @@ class HistoryViewModel extends AwaitingNotifier {
 
   Future<void> fetch() async {
     _shortcut = _defaultShortcut;
-    currencies = await _currencyRepository.getAll();
+    _currencies = await _currencyRepository.getAll();
     _currentCurrency = currencies.singleWhere((e) => e.code == _defaultCurrencyCode);
 
+    final defaultRange = LastDateRange.getRange(_defaultShortcut);
+
+    _range = defaultRange;
+
     final defaultRequest = TransactionRequest(
-      range: LastDateRange.getRange(_defaultShortcut),
+      range: defaultRange,
       currency: _currentCurrency,
     );
 
