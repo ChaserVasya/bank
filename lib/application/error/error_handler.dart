@@ -11,6 +11,12 @@ class ErrorHandler {
 
     // final alert = switchExceptionAlert(e);
     // showExceptionDialog(alert);
+
+    void printRed(Object? obj) => print('\x1B[31m$obj\x1B[0m');
+
+    printRed("============ ZONE ERROR HANDLER ===========");
+    printRed(e);
+    printRed(s);
   }
 
   static Widget errorWidgetBuilder(FlutterErrorDetails details) {
