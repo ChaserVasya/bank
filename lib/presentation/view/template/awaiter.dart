@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:bank/presentation/view/plug/element.dart';
 import 'package:bank/presentation/view_model/fetch_notifier.dart';
 
-class ContentFetcher<T extends FetchNotifier> extends StatelessWidget {
-  const ContentFetcher({
+class Awaiter<T extends AwaitingNotifier> extends StatelessWidget {
+  const Awaiter({
     required this.create,
     required this.builder,
     Key? key,
@@ -19,10 +19,9 @@ class ContentFetcher<T extends FetchNotifier> extends StatelessWidget {
       create: create,
       builder: (context, _) {
         return FutureBuilder<void>(
-          future: context.read<T>().fetch(),
+          future: context.read<T>().processing,
           builder: (_, snap) {
             if (snap.connectionState != ConnectionState.done) return const ElementPlug();
-
             return Builder(builder: builder);
           },
         );

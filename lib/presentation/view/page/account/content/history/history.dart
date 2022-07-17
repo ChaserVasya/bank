@@ -1,5 +1,5 @@
+import 'package:bank/presentation/view/template/awaiter.dart';
 import 'package:flutter/material.dart';
-import 'package:bank/presentation/view/template/content_fetcher.dart';
 import 'package:bank/presentation/view_model/history.dart';
 
 import 'list/list.dart';
@@ -10,7 +10,7 @@ class History extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContentFetcher(
+    return Awaiter(
       create: (_) => HistoryViewModel(),
       builder: (_) => Column(
         children: const [

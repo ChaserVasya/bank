@@ -7,7 +7,11 @@ import 'package:bank/application/dto/user_transaction.dart';
 import 'package:bank/application/repository/transaction_details.dart';
 import 'package:bank/presentation/view_model/fetch_notifier.dart';
 
-class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
+class HistoryViewModel extends AwaitingNotifier {
+  HistoryViewModel() {
+    processing = fetch();
+  }
+
   final _repository = GetIt.I.get<UserTransactionRepository>();
   final _currencyRepository = GetIt.I.get<CurrencyRepository>();
 
@@ -20,7 +24,7 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
   set currency(Currency currency) {
     _currency = currency;
     notifyListeners();
-    fetch();
+    processing = request();
   }
 
   late DateRangeShortcut? _shortcut = DateRangeShortcut.day;
@@ -31,20 +35,19 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
   set range(DateTimeRange newRange) {
     _shortcut = null;
     _range = newRange;
+    processing = request();
     notifyListeners();
-    fetch();
   }
 
   set shortcutRange(DateRangeShortcut shortcut) {
     _shortcut = shortcut;
     _range = LastDateRange.getRange(shortcut);
+    processing = request();
     notifyListeners();
-    fetch();
   }
 
-  ///TODO Refactor. Optimize queries
-  @override
-  Future<void> fetch() async {
+  //TODO Refactor. Optimize queries
+  Future<void> request() async {
     final request = TransactionRequest(
       range: range,
       currency: currency,

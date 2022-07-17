@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class FetchNotifier extends ChangeNotifier {
-  Future<void> fetch();
+//TODO rename file
+abstract class AwaitingNotifier extends ChangeNotifier {
+  Future<void>? processing;
 }

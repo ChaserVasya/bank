@@ -1,8 +1,8 @@
+import 'package:bank/presentation/view/template/awaiter.dart';
 import 'package:bank/presentation/view/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bank/presentation/view/animation/expansion.dart';
-import 'package:bank/presentation/view/template/content_fetcher.dart';
 import 'package:bank/presentation/view_model/user.dart';
 
 class AccountInfo extends StatelessWidget {
@@ -10,7 +10,7 @@ class AccountInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContentFetcher(
+    return Awaiter(
       create: (_) => UserViewModel(),
       builder: (context) {
         final viewModel = context.watch<UserViewModel>();
