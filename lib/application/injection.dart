@@ -9,10 +9,12 @@ import 'package:bank/application/repository/transaction_details.dart';
 import 'package:bank/application/repository/user/implementation/mock.dart';
 import 'package:bank/application/repository/user/interface.dart';
 import 'package:bank/data/repository/account/mock.dart';
+import 'package:bank/data/repository/currency/local.dart';
 import 'package:bank/data/repository/person/legal/mock.dart';
 import 'package:bank/data/repository/person/natural/mock.dart';
 import 'package:bank/data/repository/person/person/mock.dart';
 import 'package:bank/data/repository/transaction/mock.dart';
+import 'package:bank/domain/repository/currency.dart';
 import 'package:bank/domain/repository/account.dart';
 import 'package:bank/domain/repository/person/legal.dart';
 import 'package:bank/domain/repository/person/natural.dart';
@@ -59,4 +61,9 @@ Future<void> inject() async {
   getIt.registerSingleton<UserTransactionRepository>(
     UserTransactionRepository(),
   );
+  getIt.registerSingleton<CurrencyRepository>(await (() async {
+    final repository = LocalCurrencyRepository();
+    await repository.fetch();
+    return repository;
+  }()));
 }

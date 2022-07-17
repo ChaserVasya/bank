@@ -1,4 +1,5 @@
 import 'package:bank/application/helper/last_date_range.dart';
+import 'package:bank/domain/repository/currency.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
@@ -8,11 +9,13 @@ import 'package:bank/presentation/view_model/fetch_notifier.dart';
 
 class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
   final _repository = GetIt.I.get<UserTransactionRepository>();
+  final _currencyRepository = GetIt.I.get<CurrencyRepository>();
 
   late List<UserTransaction> _transactions;
   List<UserTransaction> get transactions => _transactions;
 
-  late var _currency = Currencies().find("USD")!;
+  late List<Currency> currencies;
+  late Currency _currency;
   Currency get currency => _currency;
   set currency(Currency currency) {
     _currency = currency;
@@ -51,11 +54,9 @@ class HistoryViewModel extends ChangeNotifier implements FetchNotifier {
 
     notifyListeners();
   }
-}
 
-enum DateRangeShortcut {
-  day,
-  week,
-  month,
-  all,
+  Future<void> fetch() async {
+    currencies = await _currencyRepository.getAll();
+    currency = currencies.singleWhere((e) => e.code == "USD");
+  }
 }
