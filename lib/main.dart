@@ -8,6 +8,7 @@ import 'package:bank/application/error/error_handler.dart';
 //TODO Feature. Add icon switching for different platforms
 void main() {
   runZonedGuarded(() {
+    FutureBuilder.debugRethrowError = true;
     final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
     FlutterError.onError = ErrorHandler.onFlutterError;
