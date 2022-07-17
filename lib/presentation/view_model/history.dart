@@ -12,25 +12,28 @@ class HistoryViewModel extends AwaitingNotifier {
     processing = fetch();
   }
 
-  final _repository = GetIt.I.get<UserTransactionRepository>();
+  static const _defaultCurrencyCode = "USD";
+  static const _defaultShortcut = DateRangeShortcut.day;
+
+  final _transactionRepository = GetIt.I.get<UserTransactionRepository>();
   final _currencyRepository = GetIt.I.get<CurrencyRepository>();
 
   late List<UserTransaction> _transactions;
   List<UserTransaction> get transactions => _transactions;
 
   late List<Currency> currencies;
-  late Currency _currency;
-  Currency get currency => _currency;
-  set currency(Currency currency) {
-    _currency = currency;
+  late Currency _currentCurrency;
+  Currency get currentCurrency => _currentCurrency;
+  set currentCurrency(Currency currency) {
+    _currentCurrency = currency;
     notifyListeners();
     processing = request();
   }
 
-  late DateRangeShortcut? _shortcut = DateRangeShortcut.day;
+  late DateRangeShortcut? _shortcut;
   DateRangeShortcut? get shortcut => _shortcut;
 
-  late var _range = LastDateRange.getRange(_shortcut!);
+  late DateTimeRange _range;
   DateTimeRange get range => _range;
   set range(DateTimeRange newRange) {
     _shortcut = null;
@@ -47,19 +50,29 @@ class HistoryViewModel extends AwaitingNotifier {
   }
 
   //TODO Refactor. Optimize queries
-  Future<void> request() async {
-    final request = TransactionRequest(
-      range: range,
-      currency: currency,
+  Future<List<UserTransaction>> request([TransactionRequest? request]) async {
+    request ??= TransactionRequest(
+      range: _range,
+      currency: _currentCurrency,
     );
 
-    _transactions = await _repository.getAll(request);
+    _transactions = await _transactionRepository.getAll(request);
 
     notifyListeners();
+
+    return _transactions;
   }
 
   Future<void> fetch() async {
+    _shortcut = _defaultShortcut;
     currencies = await _currencyRepository.getAll();
-    currency = currencies.singleWhere((e) => e.code == "USD");
+    _currentCurrency = currencies.singleWhere((e) => e.code == _defaultCurrencyCode);
+
+    final defaultRequest = TransactionRequest(
+      range: LastDateRange.getRange(_defaultShortcut),
+      currency: _currentCurrency,
+    );
+
+    await request(defaultRequest);
   }
 }

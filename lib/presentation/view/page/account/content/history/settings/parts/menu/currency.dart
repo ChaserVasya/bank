@@ -11,12 +11,12 @@ class CurrencyMenu extends StatelessWidget {
     final settings = context.watch<HistoryViewModel>();
     final currencies = settings.currencies;
 
-    currencies.removeWhere((e) => e == settings.currency);
+    currencies.removeWhere((e) => e == settings.currentCurrency);
 
     return OverlayMenu(
-      label: settings.currency.name,
+      label: settings.currentCurrency.name,
       length: currencies.length,
-      onItemPressed: (i) => settings.currency = currencies[i],
+      onItemPressed: (i) => settings.currentCurrency = currencies[i],
       itemContentBuilder: (_, i) => Text(currencies[i].name),
     );
   }

@@ -5,9 +5,10 @@ class ErrorHandler {
     FlutterError.presentError(details);
   }
 
+  //TODO Feature. Add error handling
   static Future<void> onZoneError(Object e, [StackTrace? s]) async {
     // Exception handling logic. Something like:
-    //
+
     // final alert = switchExceptionAlert(e);
     // showExceptionDialog(alert);
   }
