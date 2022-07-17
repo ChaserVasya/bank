@@ -4,25 +4,8 @@ import '../../../../mock/widget.dart';
 import '../../helper/separate.dart';
 import '../../mock/const_elements.dart';
 
-// void main() {
-//   group("Correct widgets count.", () {
-//     test('0 widgets when 0 items', () {
-//       final result = separate(items0);
-//       expect(result, expected0);
-//     });
-//     test('0 separators when 1 item', () {
-//       final result = separate(items1);
-//       expect(result, expected1);
-//     });
-//     test('1 separator when 2 items', () {
-//       final result = separate(items2);
-//       expect(result, expected2);
-//     });
-//   });
-// }
-
 void main() {
-  group("Correct widgets count.", () {
+  group("[SeparatorColumn]. Correct widgets count.", () {
     testWidgets('0 widgets when 0 items', (tester) async {
       final result = await separate(tester, _items0);
       expect(result, _expected0);

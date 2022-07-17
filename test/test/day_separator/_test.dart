@@ -3,8 +3,8 @@ import 'package:clock/clock.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group("DaySeparator.", () {
-    test("Common test", () {
+  group("[DaySeparator].", () {
+    test("Should correctly separate", () {
       withClock(
         Clock.fixed(DateTime(2022, 7, 16, 22, 21)),
         () {

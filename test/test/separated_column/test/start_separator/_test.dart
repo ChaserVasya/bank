@@ -4,7 +4,7 @@ import '../../helper/separate.dart';
 import '../../mock/const_elements.dart';
 
 void main() {
-  group("[startWithoutSeparator] check.", () {
+  group("[SeparatorColumn].", () {
     testWidgets(
       'Shouldn`t start without separator when not [startWithSeparator]',
       (tester) async {
