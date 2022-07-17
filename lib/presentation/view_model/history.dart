@@ -21,7 +21,9 @@ class HistoryViewModel extends AwaitingNotifier {
   late List<UserTransaction> _transactions;
   List<UserTransaction> get transactions => _transactions;
 
-  late List<Currency> currencies;
+  late final List<Currency> _currencies;
+  List<Currency> get currencies => _currencies.toList();
+
   late Currency _currentCurrency;
   Currency get currentCurrency => _currentCurrency;
   set currentCurrency(Currency currency) {
