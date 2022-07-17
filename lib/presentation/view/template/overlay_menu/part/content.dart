@@ -33,6 +33,7 @@ class OverlayPageContent extends StatelessWidget {
         //! Not [ListView] because it has ugly extra paddings
         //TODO Refactor. Create my own Sliver which doesn`t build unnecessary children
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             OutlinedButton(
               onPressed: viewModel.removeOverlay,
@@ -45,7 +46,12 @@ class OverlayPageContent extends StatelessWidget {
                 ],
               ),
             ),
-            Expanded(
+            Container(
+              height: 1,
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.40),
+            ),
+            Flexible(
+              fit: FlexFit.loose,
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -55,8 +55,8 @@ class _OverlayPageState extends State<OverlayPage> {
                 showWhenUnlinked: false,
                 child: Align(
                   alignment: Alignment.topLeft,
-                  child: SizedBox.fromSize(
-                    size: widget.size,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints.loose(widget.size),
                     child: Theme(
                       data: context.read<OverlayViewModel>().data, //[read] because It is final
                       child: OverlayPageContent(),

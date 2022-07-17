@@ -45,10 +45,7 @@ class _OverlayMenuState extends State<OverlayMenu> {
       link: _layerLink,
       child: LayoutBuilder(
         builder: (_, constrains) {
-          _size = Size(
-            constrains.maxWidth,
-            MediaQuery.of(context).size.height / 4,
-          );
+          _size = Size(constrains.maxWidth, 170);
 
           return OutlinedButton(
             onPressed: _setOverlay,
