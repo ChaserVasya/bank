@@ -1,4 +1,3 @@
-import 'package:bank/presentation/view_model/history.dart';
 import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 
@@ -33,4 +32,11 @@ class LastDateRange {
   static DateTimeRange get max {
     return getRange(DateRangeShortcut.all);
   }
+}
+
+enum DateRangeShortcut {
+  day,
+  week,
+  month,
+  all,
 }
