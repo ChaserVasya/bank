@@ -1,6 +1,6 @@
 {
-    "name": "test_frezux",
-    "short_name": "test_frezux",
+    "name": "bank",
+    "short_name": "bank",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

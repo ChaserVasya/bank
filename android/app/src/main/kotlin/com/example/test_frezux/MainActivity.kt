@@ -1,4 +1,4 @@
-package com.example.test_frezux
+package com.chaservasya.bank
 
 import io.flutter.embedding.android.FlutterActivity
 
