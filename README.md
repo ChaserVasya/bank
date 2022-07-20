@@ -1,4 +1,4 @@
-<a href="https://drive.google.com/uc?export=view&id=1ht2m80Y5IsvhutglPvo5f7mnN1qq2tEC"><img src="https://drive.google.com/uc?export=view&id=1ht2m80Y5IsvhutglPvo5f7mnN1qq2tEC" style="width: 300; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1ht2m80Y5IsvhutglPvo5f7mnN1qq2tEC"><img src="https://drive.google.com/uc?export=view&id=1ht2m80Y5IsvhutglPvo5f7mnN1qq2tEC" style="width: 300; max-width: 100%; height: auto" title="Reload page if you see this text" />
 
 
 # Bank
@@ -14,7 +14,7 @@ This project is the last of all and shows my current level.
 
 Icon.
 
-<a href="https://drive.google.com/uc?export=view&id=1sBWp6IYC4RXajkHUGm_n-znjrRQb9S1r"><img src="https://drive.google.com/uc?export=view&id=1sBWp6IYC4RXajkHUGm_n-znjrRQb9S1r" style="width: 300; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<a href="https://drive.google.com/uc?export=view&id=1sBWp6IYC4RXajkHUGm_n-znjrRQb9S1r"><img src="https://drive.google.com/uc?export=view&id=1sBWp6IYC4RXajkHUGm_n-znjrRQb9S1r" style="width: 300; max-width: 100%; height: auto" title="Reload page if you see this text" />
 
 # Video  (CLICK TO WATCH)
 Full video is at the end!
