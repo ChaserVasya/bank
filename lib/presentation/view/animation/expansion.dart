@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bank/presentation/view_model/expansion.dart';
 
 class Expansion extends StatefulWidget {
@@ -28,9 +28,9 @@ class _ExpansionState extends State<Expansion> with SingleTickerProviderStateMix
 
   @override
   void didChangeDependencies() {
-    final viewModel = context.watch<ExpansionNotifier>();
+    final viewModel = context.watch<ExpansionCubit>();
 
-    if (viewModel.isExpanded)
+    if (viewModel.state)
       _controller.forward();
     else
       _controller.reverse().then((value) {
@@ -45,29 +45,30 @@ class _ExpansionState extends State<Expansion> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    final isExpanded = context.watch<ExpansionNotifier>().isExpanded;
+    bool closed = false;
 
-    final closed = !isExpanded && _controller.isDismissed;
-
-    return AnimatedOpacity(
-      duration: _duration,
-      opacity: isExpanded ? 1 : 0,
-      child: AnimatedBuilder(
-        animation: _controller.view,
-        builder: (_, child) => Align(
-          heightFactor: _heightFactor.value,
-          //TODO Check. How useful is Offstage in this case?
-          child: Offstage(
-            offstage: closed,
-            child: TickerMode(
-              enabled: !closed,
-              child: Container(
-                child: child,
+    return BlocConsumer<ExpansionCubit, bool>(
+      listener: (_, isExpanded) => closed = !isExpanded && _controller.isDismissed,
+      builder: (_, isExpanded) => AnimatedOpacity(
+        duration: _duration,
+        opacity: isExpanded ? 1 : 0,
+        child: AnimatedBuilder(
+          animation: _controller.view,
+          builder: (_, child) => Align(
+            heightFactor: _heightFactor.value,
+            //TODO Check. How useful is Offstage in this case?
+            child: Offstage(
+              offstage: closed,
+              child: TickerMode(
+                enabled: !closed,
+                child: Container(
+                  child: child,
+                ),
               ),
             ),
           ),
+          child: closed ? null : widget.child,
         ),
-        child: closed ? null : widget.child,
       ),
     );
   }

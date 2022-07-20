@@ -5,11 +5,11 @@ import 'package:get_it/get_it.dart';
 import 'package:money2/money2.dart';
 import 'package:bank/application/dto/transaction_context.dart';
 import 'package:bank/application/repository/transaction_context.dart';
-import 'package:bank/presentation/view_model/awaiting_notifier.dart';
+import 'package:bank/presentation/view_model/awaiting.dart';
 
-class HistoryViewModel extends AwaitingNotifier {
+class HistoryViewModel extends AwaitingCubit {
   HistoryViewModel() {
-    processing = fetch();
+    fetch();
   }
 
   static const _defaultCurrencyCode = "USD";
@@ -28,8 +28,7 @@ class HistoryViewModel extends AwaitingNotifier {
   Currency get currentCurrency => _currentCurrency;
   set currentCurrency(Currency currency) {
     _currentCurrency = currency;
-    processing = request();
-    notifyListeners();
+    request();
   }
 
   late DateRangeShortcut? _shortcut;
@@ -40,19 +39,19 @@ class HistoryViewModel extends AwaitingNotifier {
   set range(DateTimeRange newRange) {
     _shortcut = null;
     _range = newRange;
-    processing = request();
-    notifyListeners();
+    request();
   }
 
   set shortcutRange(DateRangeShortcut shortcut) {
     _shortcut = shortcut;
     _range = LastDateRange.getRange(shortcut);
-    processing = request();
-    notifyListeners();
+    request();
   }
 
   //TODO Refactor. Optimize queries
-  Future<List<TransactionContext>> request([TransactionRequest? request]) async {
+  Future<void> request([TransactionRequest? request]) async {
+    emit(WaitingState.processing);
+
     request ??= TransactionRequest(
       range: _range,
       currency: _currentCurrency,
@@ -60,12 +59,12 @@ class HistoryViewModel extends AwaitingNotifier {
 
     _transactions = await _transactionRepository.getAll(request);
 
-    notifyListeners();
-
-    return _transactions;
+    emit(WaitingState.ready);
   }
 
   Future<void> fetch() async {
+    emit(WaitingState.processing);
+
     _shortcut = _defaultShortcut;
     _currencies = await _currencyRepository.getAll();
     _currentCurrency = currencies.singleWhere((e) => e.code == _defaultCurrencyCode);
@@ -80,5 +79,7 @@ class HistoryViewModel extends AwaitingNotifier {
     );
 
     await request(defaultRequest);
+
+    emit(WaitingState.ready);
   }
 }

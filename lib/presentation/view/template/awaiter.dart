@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:bank/presentation/view/plug/element.dart';
-import 'package:bank/presentation/view_model/awaiting_notifier.dart';
+import 'package:bank/presentation/view_model/awaiting.dart';
 
-class Awaiter<T extends AwaitingNotifier> extends StatelessWidget {
+class Awaiter<T extends AwaitingCubit> extends StatelessWidget {
   const Awaiter({
     required this.create,
     required this.builder,
@@ -15,16 +16,15 @@ class Awaiter<T extends AwaitingNotifier> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: create,
-      builder: (context, _) {
-        return FutureBuilder<void>(
-          future: context.read<T>().processing,
-          builder: (_, snap) {
-            if (snap.connectionState != ConnectionState.done) return const ElementPlug();
+    return BlocBuilder<T, WaitingState>(
+      bloc: create(context),
+      builder: (context, waiting) {
+        switch (waiting) {
+          case WaitingState.processing:
+            return const ElementPlug();
+          case WaitingState.ready:
             return Builder(builder: builder);
-          },
-        );
+        }
       },
     );
   }

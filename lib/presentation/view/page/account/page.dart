@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bank/presentation/view_model/expansion.dart';
 
 import 'content/history/history.dart';
@@ -11,8 +11,8 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ExpansionNotifier(),
+    return BlocProvider(
+      create: (_) => ExpansionCubit(),
       child: AccountPageScaffold(
         body: ListView(
           children: const [

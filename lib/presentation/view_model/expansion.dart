@@ -1,16 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ExpansionNotifier extends ChangeNotifier {
-  bool _isExpanded = false;
-  bool get isExpanded => _isExpanded;
-  set isExpanded(bool newValue) {
-    if (_isExpanded == newValue) return;
-    _isExpanded = newValue;
-    notifyListeners();
-  }
+class ExpansionCubit extends Cubit<bool> {
+  ExpansionCubit() : super(false);
 
-  void switchValue() {
-    _isExpanded = !_isExpanded;
-    notifyListeners();
-  }
+  void switchValue() => emit(!state);
 }

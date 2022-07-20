@@ -1,18 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:bank/presentation/view_model/expansion.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AccountPageFloatingButton extends StatelessWidget {
   const AccountPageFloatingButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final expansionNotifier = context.watch<ExpansionNotifier>();
     return Align(
       alignment: const Alignment(1, 0.8),
-      child: FloatingActionButton.extended(
-        onPressed: expansionNotifier.switchValue,
-        label: Text(expansionNotifier.isExpanded ? "Hide" : "Show"),
+      child: BlocBuilder<ExpansionCubit, bool>(
+        builder: (_, isExpanded) => FloatingActionButton.extended(
+          onPressed: context.read<ExpansionCubit>().switchValue,
+          label: Text(isExpanded ? "Hide" : "Show"),
+        ),
       ),
     );
   }
