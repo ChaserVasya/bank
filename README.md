@@ -21,12 +21,12 @@ Full video is at the end!
 
 Overlay
 
-[![IMAGE ALT TEXT](https://drive.google.com/uc?export=view&id=10Y1Z-kMiIpH2FSCig9ENibgxs1Dl3jFW)](https://drive.google.com/uc?export=view&id=1pZX2WQHkm77pCZ7EiUat5zbfaqpF9-dm)
+[![Reload page if you see this text](https://drive.google.com/uc?export=view&id=10Y1Z-kMiIpH2FSCig9ENibgxs1Dl3jFW)](https://drive.google.com/uc?export=view&id=1pZX2WQHkm77pCZ7EiUat5zbfaqpF9-dm)
 
 Expanded account info
 
-[![IMAGE ALT TEXT](https://drive.google.com/uc?export=view&id=1fNUGNgycoJ4SeLcSh_bd3DXQ5Q9-Jh3K)](https://drive.google.com/uc?export=view&id=1s7M4vXdmAXTRBNc4cU4c595RG6qhXzPg)
+[![Reload page if you see this text](https://drive.google.com/uc?export=view&id=1fNUGNgycoJ4SeLcSh_bd3DXQ5Q9-Jh3K)](https://drive.google.com/uc?export=view&id=1s7M4vXdmAXTRBNc4cU4c595RG6qhXzPg)
 
 FULL VIDEO! 
 
-[![IMAGE ALT TEXT](https://drive.google.com/uc?export=view&id=1kq5kSMKAv9FRB0aquYJ7WP5ZjG7eMZ-Q)](https://drive.google.com/uc?export=view&id=1wU4SkkUDCaNLvJRjeE2wYtGBszZr6mM1)
+[![Reload page if you see this text](https://drive.google.com/uc?export=view&id=1kq5kSMKAv9FRB0aquYJ7WP5ZjG7eMZ-Q)](https://drive.google.com/uc?export=view&id=1wU4SkkUDCaNLvJRjeE2wYtGBszZr6mM1)
