@@ -20,7 +20,7 @@ class OverlayPage extends StatefulWidget {
 
 class _OverlayPageState extends State<OverlayPage> {
   static const _curve = Curves.easeOut;
-  static const _duration = Duration(milliseconds: 200);
+  static const _duration = Duration(milliseconds: 300);
 
   @override
   void didChangeDependencies() {
