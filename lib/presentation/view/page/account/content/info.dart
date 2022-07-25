@@ -1,4 +1,4 @@
-import 'package:bank/presentation/view/template/awaiter.dart';
+import 'package:bank/presentation/view/widget/awaiter.dart';
 import 'package:bank/presentation/view/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

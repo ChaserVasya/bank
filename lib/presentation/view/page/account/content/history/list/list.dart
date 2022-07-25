@@ -1,7 +1,7 @@
 import 'package:bank/application/helper/day_separator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:bank/presentation/view/template/separated_column.dart';
+import 'package:bank/presentation/view/widget/separated_column.dart';
 import 'package:bank/presentation/view_model/history.dart';
 
 import 'day_separator_tile.dart';

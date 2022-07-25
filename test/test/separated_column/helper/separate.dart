@@ -1,4 +1,4 @@
-import 'package:bank/presentation/view/template/separated_column.dart';
+import 'package:bank/presentation/view/widget/separated_column.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

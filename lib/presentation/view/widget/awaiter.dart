@@ -16,16 +16,20 @@ class Awaiter<T extends AwaitingCubit> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<T, WaitingState>(
-      bloc: create(context),
-      builder: (context, waiting) {
-        switch (waiting) {
-          case WaitingState.processing:
-            return const ElementPlug();
-          case WaitingState.ready:
-            return Builder(builder: builder);
-        }
-      },
+    return BlocProvider(
+      create: create,
+      child: BlocBuilder<T, WaitingState>(
+        builder: (context, waiting) {
+          switch (waiting) {
+            case WaitingState.processing:
+              return const ElementPlug();
+            case WaitingState.ready:
+              return builder(context);
+            default:
+              throw Exception();
+          }
+        },
+      ),
     );
   }
 }

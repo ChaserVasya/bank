@@ -1,4 +1,4 @@
-import 'package:bank/presentation/view/template/overlay_menu/part/view_model.dart';
+import 'package:bank/presentation/view/widget/overlay_menu/part/view_model.dart';
 import 'package:bank/presentation/view/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
